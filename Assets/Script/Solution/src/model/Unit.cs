@@ -1,3 +1,8 @@
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using System.Linq;
+
 namespace solution.src.model
 {
     public class Unit : List<char>
@@ -9,5 +14,17 @@ namespace solution.src.model
         public Unit(Unit unit) : base(unit.ToArray()) {}
     }
 
-    public record UnitWithCount(Unit Unit, int Count);
+    public class UnitWithCount
+    {
+        public Unit Unit;
+        public int Count;
+
+        public UnitWithCount(Unit Unit, int Count)
+        {
+            this.Unit = Unit;
+            this.Count = Count;
+        }
+    }
+
+    //public record UnitWithCount(Unit Unit, int Count);
 }

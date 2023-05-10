@@ -1,7 +1,7 @@
-namespace solution.src.game
+/*namespace solution.src.game
 {
     public class PlayLog
     {
         
     }
-}
+}*/

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using controller;
+
 public class PushS : MonoBehaviour
 {
     public GameObject ChallengeMode;

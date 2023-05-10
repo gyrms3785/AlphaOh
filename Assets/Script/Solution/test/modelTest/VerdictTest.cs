@@ -1,3 +1,6 @@
+using System.Linq;
+using System;
+
 using System.Diagnostics;
 using solution.client;
 using solution.src.model;

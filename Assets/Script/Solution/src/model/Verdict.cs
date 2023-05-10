@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace solution.src.model
 {
     public class Verdict
@@ -41,5 +43,17 @@ namespace solution.src.model
         }
     }
 
-    public record VerdictWithCount(Verdict Verdict, int Count);
+    public class VerdictWithCount
+    {
+        public Verdict Verdict;
+        public int Count;
+
+        public VerdictWithCount(Verdict Verdict, int Count)
+        {
+            this.Verdict = Verdict;
+            this.Count = Count;
+        }
+    }
+
+    //public record VerdictWithCount(Verdict Verdict, int Count);
 }

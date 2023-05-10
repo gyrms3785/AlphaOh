@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System;
+using System.Linq;
+
 namespace solution.src.model
 {
     public class CaseSet

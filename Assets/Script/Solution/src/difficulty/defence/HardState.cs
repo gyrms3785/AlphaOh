@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 using solution.src.game;
 using solution.src.model;
 
