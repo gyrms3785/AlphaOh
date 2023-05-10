@@ -1,9 +1,9 @@
-namespace solution.src.game;
+using solution.src.model;
 
-using model;
-
-
-public interface IDefenceLevelState
+namespace solution.src.game
 {
-    public Verdict GetResponse(Unit request);
+    public interface IDefenceLevelState
+    {
+        public Verdict GetResponse(Unit request);
+    }
 }

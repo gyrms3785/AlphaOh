@@ -1,14 +1,15 @@
-namespace solution.client;
-
-public interface IGameUseCase
+namespace solution.client
 {
-    void NewGame(string mode, string difficulty);
+    public interface IGameUseCase
+    {
+        void NewGame(string mode, string difficulty);
 
-    string HandleComputerRequestTurn();
+        string HandleComputerRequestTurn();
 
-    void HandleComputerResponseTurn(string response);
+        void HandleComputerResponseTurn(string response);
 
-    void HandleHumanRequestTurn(string request);
+        void HandleHumanRequestTurn(string request);
 
-    string HandleHumanResponseTurn();
+        string HandleHumanResponseTurn();
+    }
 }

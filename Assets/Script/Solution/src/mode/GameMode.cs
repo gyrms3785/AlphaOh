@@ -1,8 +1,8 @@
-namespace solution.src.mode;
-
-
-public enum GameMode
+namespace solution.src.mode
 {
-    Challenge,
-    Battle
+    public enum GameMode
+    {
+        Challenge,
+        Battle
+    }
 }

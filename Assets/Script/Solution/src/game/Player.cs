@@ -1,36 +1,36 @@
-namespace solution.src.game;
-
 using solution.src.model;
 
-
-public class Player
+namespace solution.src.game
 {
-    private readonly List<PlayLog> _playLogs = new();
-
-    private CaseSet _caseSet = new ();
-
-    public CaseSet GetCaseSet()
+    public class Player
     {
-        return _caseSet;
-    }
+        private readonly List<PlayLog> _playLogs = new();
 
-    public void SetCaseSet(CaseSet caseSet)
-    {
-        _caseSet = caseSet;
-    }
+        private CaseSet _caseSet = new ();
 
-    public void InsertRequestLog(Unit request)
-    {
-        _playLogs.Add(new PlayLog().SetRequest(request));
-    }
+        public CaseSet GetCaseSet()
+        {
+            return _caseSet;
+        }
 
-    public void InsertResponseLog(Verdict response)
-    {
-        _playLogs[^1].SetResponse(response);
-    }
+        public void SetCaseSet(CaseSet caseSet)
+        {
+            _caseSet = caseSet;
+        }
 
-    public Unit GetLastInsertedAttack()
-    {
-        return _playLogs[^1].GetRequest();
+        public void InsertRequestLog(Unit request)
+        {
+            _playLogs.Add(new PlayLog().SetRequest(request));
+        }
+
+        public void InsertResponseLog(Verdict response)
+        {
+            _playLogs[^1].SetResponse(response);
+        }
+
+        public Unit GetLastInsertedAttack()
+        {
+            return _playLogs[^1].GetRequest();
+        }
     }
 }

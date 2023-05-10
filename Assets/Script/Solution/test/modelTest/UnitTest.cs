@@ -1,13 +1,14 @@
 using System.Diagnostics;
 using solution.src.model;
 
-namespace solution.test.modelTest;
-
-public static class UnitTest
+namespace solution.test.modelTest
 {
-    public static void TestUnitValid()
+    public static class UnitTest
     {
-        var unit = new Unit("1234");
-        Tester.Assert(4, unit.Count);
-    }
+        public static void TestUnitValid()
+        {
+            var unit = new Unit("1234");
+            Tester.Assert(4, unit.Count);
+        }
+    }   
 }

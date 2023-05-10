@@ -1,40 +1,41 @@
-namespace solution.client;
+using solution.src.game;
 
-using src.game;
-
-public class GameAdapter : IGameUseCase
+namespace solution.client
 {
-    private Game _game = new ();
-
-    public void NewGame(string mode, string diff)
+    public class GameAdapter : IGameUseCase
     {
-        var gameMode = GameTransfer.GameModeToEnum(mode);
-        var difficulty = GameTransfer.DifficultyToEnum(diff);
+        private Game _game = new ();
 
-        _game = new Game(gameMode, difficulty);
-    }
+        public void NewGame(string mode, string diff)
+        {
+            var gameMode = GameTransfer.GameModeToEnum(mode);
+            var difficulty = GameTransfer.DifficultyToEnum(diff);
 
-    public string HandleComputerRequestTurn()
-    {
-        var response = _game.ComputerRequest();
-        return GameTransfer.UnitToString(response);
-    }
+            _game = new Game(gameMode, difficulty);
+        }
 
-    public void HandleComputerResponseTurn(string request)
-    {
-        var verdict = GameTransfer.StringToVerdict(request);
-        _game.ClientResponse(verdict);
-    }
+        public string HandleComputerRequestTurn()
+        {
+            var response = _game.ComputerRequest();
+            return GameTransfer.UnitToString(response);
+        }
 
-    public void HandleHumanRequestTurn(string request)
-    {
-        var unit = GameTransfer.StringToUnit(request);
-        _game.ClientRequest(unit);
-    }
+        public void HandleComputerResponseTurn(string request)
+        {
+            var verdict = GameTransfer.StringToVerdict(request);
+            _game.ClientResponse(verdict);
+        }
 
-    public string HandleHumanResponseTurn()
-    {
-        var verdict = _game.ComputerResponse();
-        return GameTransfer.VerdictToString(verdict);
+        public void HandleHumanRequestTurn(string request)
+        {
+            var unit = GameTransfer.StringToUnit(request);
+            _game.ClientRequest(unit);
+        }
+
+        public string HandleHumanResponseTurn()
+        {
+            var verdict = _game.ComputerResponse();
+            return GameTransfer.VerdictToString(verdict);
+        }
     }
 }

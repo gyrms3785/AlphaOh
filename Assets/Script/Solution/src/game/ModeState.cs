@@ -1,6 +1,7 @@
-namespace solution.src.game;
-
-public interface IModeState
+namespace solution.src.game
 {
-    public void Next();
+    public interface IModeState
+    {
+        public void Next();
+    }
 }

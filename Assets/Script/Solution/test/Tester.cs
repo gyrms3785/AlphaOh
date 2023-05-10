@@ -1,39 +1,39 @@
 using System.Security.Cryptography;
 
-namespace solution.test;
-
 using modelTest;
 
-
-public static class Tester
+namespace solution.test
 {
-    public static void Test()
+    public static class Tester
     {
-        UnitTest.TestUnitValid();
-
-        VerdictTest.TestVerdictValid();
-        VerdictTest.TestVerdictByUnit();
-
-        CaseSetTest.TestInit();
-        CaseSetTest.TestFilter();
-    }
-
-    public static void Assert<T>(T expect, T result)
-    {
-        if (expect == null)
+        public static void Test()
         {
-            throw new NullReferenceException("");
+            UnitTest.TestUnitValid();
+
+            VerdictTest.TestVerdictValid();
+            VerdictTest.TestVerdictByUnit();
+
+            CaseSetTest.TestInit();
+            CaseSetTest.TestFilter();
         }
 
-        if (result == null)
+        public static void Assert<T>(T expect, T result)
         {
-            throw new NullReferenceException("");
-        }
+            if (expect == null)
+            {
+                throw new NullReferenceException("");
+            }
 
-        if (!expect.Equals(result))
-        {
-            Console.WriteLine("expected: {0}, resulted: {1}", expect, result);
-            throw new Exception("expected value and resulted value are different");
+            if (result == null)
+            {
+                throw new NullReferenceException("");
+            }
+
+            if (!expect.Equals(result))
+            {
+                Console.WriteLine("expected: {0}, resulted: {1}", expect, result);
+                throw new Exception("expected value and resulted value are different");
+            }
         }
     }
 }

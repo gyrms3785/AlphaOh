@@ -1,9 +1,10 @@
 using solution.src.model;
 
-namespace solution.src.game;
-
-public interface IAttackLevelState
+namespace solution.src.game
 {
-    public Unit GetRequest();
-    public void HandleResponse(Unit request, Verdict response);
+    public interface IAttackLevelState
+    {
+        public Unit GetRequest();
+        public void HandleResponse(Unit request, Verdict response);
+    }
 }

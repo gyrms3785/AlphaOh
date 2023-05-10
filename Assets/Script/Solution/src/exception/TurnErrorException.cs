@@ -1,9 +1,10 @@
-namespace solution.src.exception;
-
-public class TurnErrorException : Exception
+namespace solution.src.exception
 {
-    public TurnErrorException()
+    public class TurnErrorException : Exception
     {
-        
+        public TurnErrorException()
+        {
+            
+        }
     }
 }

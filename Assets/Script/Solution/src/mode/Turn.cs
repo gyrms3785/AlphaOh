@@ -1,9 +1,10 @@
-namespace solution.src.mode;
-
-public enum Turn
+namespace solution.src.mode
 {
-    ComputerRequest,
-    ComputerResponse,
-    ClientRequest,
-    ClientResponse
+    public enum Turn
+    {
+        ComputerRequest,
+        ComputerResponse,
+        ClientRequest,
+        ClientResponse
+    }
 }

@@ -1,54 +1,55 @@
-namespace solution.src.model;
-
-public class CaseSet
+namespace solution.src.model
 {
-    private List<Unit> _cases = new ();
-
-    public List<Unit> GetCases()
+    public class CaseSet
     {
-        return _cases;
-    }
+        private List<Unit> _cases = new ();
 
-    public void SetCases(List<Unit> cases)
-    {
-        _cases = cases;
-    }
+        public List<Unit> GetCases()
+        {
+            return _cases;
+        }
 
-    public CaseSet()
-    {
-        InitializeUnit(0, DefaultValue.DefaultCharSize, new Unit());
-    }
+        public void SetCases(List<Unit> cases)
+        {
+            _cases = cases;
+        }
 
-    private CaseSet(List<Unit> cases)
-    {
-        _cases = cases;
-    }
+        public CaseSet()
+        {
+            InitializeUnit(0, DefaultValue.DefaultCharSize, new Unit());
+        }
 
-    public CaseSet Filter(Func<Unit, bool> filter)
-    {
-        var filteredCases = _cases.Where(filter).ToList();
-        return new CaseSet(filteredCases);
-    }
+        private CaseSet(List<Unit> cases)
+        {
+            _cases = cases;
+        }
 
-    public int Count()
-    {
-        return _cases.Count;
-    }
+        public CaseSet Filter(Func<Unit, bool> filter)
+        {
+            var filteredCases = _cases.Where(filter).ToList();
+            return new CaseSet(filteredCases);
+        }
 
-    private void InitializeUnit(int i, int n, Unit unit) {
+        public int Count()
+        {
+            return _cases.Count;
+        }
 
-        if (i == n) {
-            _cases.Add(new Unit(unit));
-            return;
+        private void InitializeUnit(int i, int n, Unit unit) {
+
+            if (i == n) {
+                _cases.Add(new Unit(unit));
+                return;
+            }
+            
+            var charList = DefaultValue.DefaultCharList.Where(c => !unit.Contains(c));
+            foreach (var c in charList)
+            {
+                unit.Add(c);
+                InitializeUnit(i + 1, n, unit);
+                unit.RemoveAt(unit.Count - 1);
+            }
         }
         
-        var charList = DefaultValue.DefaultCharList.Where(c => !unit.Contains(c));
-        foreach (var c in charList)
-        {
-            unit.Add(c);
-            InitializeUnit(i + 1, n, unit);
-            unit.RemoveAt(unit.Count - 1);
-        }
     }
-    
 }

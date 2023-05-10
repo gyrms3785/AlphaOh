@@ -1,8 +1,9 @@
-namespace solution.src.difficulty;
-
-public enum Difficulty
+namespace solution.src.difficulty
 {
-    Easy,
-    Medium,
-    Hard,
+    public enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard,
+    }   
 }

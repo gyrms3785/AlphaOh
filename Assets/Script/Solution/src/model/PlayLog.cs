@@ -1,29 +1,30 @@
-namespace solution.src.model;
-
-public struct PlayLog
+namespace solution.src.model
 {
-    private Unit _request;
-    private Verdict _response;
-
-    public Unit GetRequest()
+    public struct PlayLog
     {
-        return _request;
-    }
+        private Unit _request;
+        private Verdict _response;
 
-    public PlayLog SetRequest(Unit request)
-    {
-        _request = request;
-        return this;
-    }
+        public Unit GetRequest()
+        {
+            return _request;
+        }
 
-    public Verdict GetResponse()
-    {
-        return _response;
-    }
+        public PlayLog SetRequest(Unit request)
+        {
+            _request = request;
+            return this;
+        }
 
-    public PlayLog SetResponse(Verdict response)
-    {
-        _response = response;
-        return this;
+        public Verdict GetResponse()
+        {
+            return _response;
+        }
+
+        public PlayLog SetResponse(Verdict response)
+        {
+            _response = response;
+            return this;
+        }
     }
 }
