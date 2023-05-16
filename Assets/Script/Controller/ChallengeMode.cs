@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using solution.client;
+
 namespace controller
 {
     public class ChallengeMode : MonoBehaviour
@@ -26,6 +28,8 @@ namespace controller
         private RectTransform rectTransform;
         private RectTransform rectTransform1;
         private RectTransform rectTransform2;
+
+        public IGameUseCase guc = new GameAdapter();
 
         //with 규민이형, defence에서 먼저 효근 -> 규민형으로 방어값(0S0B나 4S나 OUT 등) string 값을 전달하면 반환형 string으로 1234(또는 정답 없음) 등을 규민형 -> 효근으로 받기
 
@@ -79,7 +83,7 @@ namespace controller
             number = Inputnum.text;
 
             //public int AI_Question = to규민(number);
-
+            
             if(number[1] == 'B')
             {
                 string temp1 = number.Substring(0, 2);
