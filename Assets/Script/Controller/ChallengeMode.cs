@@ -16,14 +16,15 @@ namespace controller
         public GameObject Singlemode;
         public GameObject Challengemode;
         public GameObject Black_screen;
-        public GameObject BlockS;
-        public GameObject BlockB;
         public GameObject PushCodeLock;
         public GameObject ClearMessage;
         public GameObject TextBoxBox;
         public GameObject TextBox;
         public GameObject InButton;
         public int count;
+
+        int Sint = 0;
+        int Bint = 0;
 
         private RectTransform rectTransform;
         private RectTransform rectTransform1;
@@ -51,31 +52,63 @@ namespace controller
             rectTransform2.anchoredPosition = new Vector3(1080, 0, 0);
         }
 
-        public void PushS1(string StrikeLabel, GameObject PushB)
+        public void PushS1(int StrikeLabel)
         {
-            Inputnum.text += StrikeLabel;
-            PushB.SetActive(false);
-            BlockS.gameObject.SetActive(true);
+            if(Sint == StrikeLabel)
+            {
+                StrikeLabel = 0;
+            }
+
+            Sint = StrikeLabel;
+            GameObject StrikeZone = PushCodeLock.transform.GetChild(0).gameObject;
+            
+            if(4 - Sint < Bint)
+            {
+                PushB1(4-Sint);
+            }
+            Inputnum.text = Sint.ToString()+'S'+Bint.ToString()+'B';
+            StrikeZone.transform.GetChild(4).GetComponent<TMP_Text>().text = Sint.ToString()+'S';
+
+            for(int i=0; i<Sint; i++)
+            {
+                StrikeZone.transform.GetChild(3-i).GetComponent<SpriteRenderer>().material.color = new Color(1.25f, 1.25f, 1.25f);
+            }
+            for(int i=0; i<4-Sint; i++)
+            {
+                StrikeZone.transform.GetChild(i).GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f);
+            }
         }
 
-        public void PushB1(string BallLabel, GameObject PushS)
+        public void PushB1(int BallLabel)
         {
-            Inputnum.text += BallLabel;
-            PushS.SetActive(false);
-            BlockB.gameObject.SetActive(true);
+            if(Bint == BallLabel)
+            {
+                BallLabel = 0;
+            }
+
+            Bint = BallLabel;
+            GameObject BallZone = PushCodeLock.transform.GetChild(1).gameObject;
+
+            if(4 - Bint < Sint)
+            {
+                PushS1(4-Bint);
+            }
+            Inputnum.text = Sint.ToString()+'S'+Bint.ToString()+'B';
+            BallZone.transform.GetChild(4).GetComponent<TMP_Text>().text = Bint.ToString()+'B';
+
+            for(int i=0; i<Bint; i++)
+            {
+                BallZone.transform.GetChild(3-i).GetComponent<SpriteRenderer>().material.color = new Color(1.25f, 1.25f, 1.25f);
+            }
+            for(int i=0; i<4-Bint; i++)
+            {
+                BallZone.transform.GetChild(i).GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f);
+            }
         }
 
         public void ResetSB1()
         {
             Inputnum.text = "";
-
-            for(int i=0; i<10; i++)
-            {
-                PushCodeLock.transform.GetChild(i).gameObject.SetActive(true);
-            }
-
-            BlockS.gameObject.SetActive(false);
-            BlockB.gameObject.SetActive(false);
         }
 
         public void InputSB1()

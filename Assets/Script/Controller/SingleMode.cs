@@ -37,7 +37,7 @@ public class SingleMode : MonoBehaviour
         checkC = true;
     }
 
-    public void ExitGame1()
+    public void ExitGame1() //count, time, 텍스트, 로그
     {
         Mainmenu.gameObject.SetActive(true);
         Black_screen.gameObject.SetActive(false);
