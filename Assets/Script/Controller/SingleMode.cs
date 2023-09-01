@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using solution.client;
+
 public class SingleMode : MonoBehaviour
 {
     public TMP_Text Inputnum;
@@ -26,6 +28,8 @@ public class SingleMode : MonoBehaviour
 
     private RectTransform rectTransform;
 
+    public IGameUseCase guc = new GameDummy();
+
     //with 규민이형, offence에서 먼저 효근 -> 규민형으로 숫자의 string 값을 전달하면 반환형 string으로 0S0B나 4S나 OUT 등을 규민형 -> 효근으로 받기
 
     public void CheckC1()
@@ -33,7 +37,7 @@ public class SingleMode : MonoBehaviour
         checkC = true;
     }
 
-    public void ExitGame1()
+    public void ExitGame1() //count, time, 텍스트, 로그
     {
         Mainmenu.gameObject.SetActive(true);
         Black_screen.gameObject.SetActive(false);
@@ -69,6 +73,7 @@ public class SingleMode : MonoBehaviour
         number = Inputnum.text;
 
         //public string aSbB = to규민(number);
+        guc.HandleHumanRequestTurn(number);
 
         for(int i=0; i<TextBoxBox.transform.childCount; i++)
         {
@@ -77,10 +82,10 @@ public class SingleMode : MonoBehaviour
             rectTransform.anchoredPosition = new Vector3(0, temp+0.2f, -10);
         }
         TextBox.transform.GetChild(0).GetComponent<TMP_Text>().text = Inputnum.text;
-        TextBox.transform.GetChild(1).GetComponent<TMP_Text>().text = "0S0B";//aSbB로 수정.
+        TextBox.transform.GetChild(1).GetComponent<TMP_Text>().text = guc.HandleHumanResponseTurn();//aSbB로 수정.
         Instantiate(TextBox, new Vector3 (0,0.1f,-10), Quaternion.identity).transform.SetParent(TextBoxBox.transform, false);
 
-        if(number == "1234")
+        if(TextBox.transform.GetChild(1).GetComponent<TMP_Text>().text == "4S0B")
         {
             Black_screen.gameObject.SetActive(true);
             ClearMessage.gameObject.SetActive(true);

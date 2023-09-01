@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using controller;
+
 public class PushS : MonoBehaviour
 {
     public GameObject ChallengeMode;
-    public string StrikeLabel;
+    public int StrikeLabel;
     /*public TMP_Text Inputnum;
     public GameObject BlockS;*/
 
@@ -16,6 +18,6 @@ public class PushS : MonoBehaviour
         this.gameObject.SetActive(false);
         BlockS.gameObject.SetActive(true);*/
 
-        ChallengeMode.GetComponent<ChallengeMode>().PushS1(StrikeLabel, this.gameObject);
+        ChallengeMode.GetComponent<ChallengeMode>().PushS1(StrikeLabel);
     }
 }

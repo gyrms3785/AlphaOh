@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using controller;
+
 public class PushB : MonoBehaviour
 {
     public GameObject ChallengeMode;
-    public string BallLabel;
+    public int BallLabel;
     /*public TMP_Text Inputnum;
     public GameObject BlockB;*/
 
@@ -16,6 +18,6 @@ public class PushB : MonoBehaviour
         this.gameObject.SetActive(false);
         BlockB.gameObject.SetActive(true);*/
 
-        ChallengeMode.GetComponent<ChallengeMode>().PushB1(BallLabel, this.gameObject);
+        ChallengeMode.GetComponent<ChallengeMode>().PushB1(BallLabel);
     }
 }

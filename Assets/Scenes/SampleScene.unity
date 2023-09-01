@@ -1086,6 +1086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 124623139}
   menu: {fileID: 1793633992}
+  level: MEDIUM
 --- !u!1 &174865336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 124623139}
   menu: {fileID: 1793633992}
+  level: HARD
 --- !u!1 &330902693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,6 +2821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 124623139}
   menu: {fileID: 673069932}
+  level: MEDIUM
 --- !u!61 &513832725
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6578,6 +6581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 124623139}
   menu: {fileID: 673069932}
+  level: EASY
 --- !u!61 &1132626410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8115,6 +8119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 124623139}
   menu: {fileID: 1793633992}
+  level: EASY
 --- !u!1 &1422197118
 GameObject:
   m_ObjectHideFlags: 0
@@ -9563,6 +9568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 124623139}
   menu: {fileID: 673069932}
+  level: HARD
 --- !u!61 &1819331128
 BoxCollider2D:
   m_ObjectHideFlags: 0

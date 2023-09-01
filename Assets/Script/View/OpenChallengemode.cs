@@ -6,7 +6,7 @@ public class OpenChallengemode : MonoBehaviour
 {
     public GameObject MainMenu;
     public GameObject menu;
-    public int level;
+    public string level;
     
     private void OnMouseDown() {
         /*Singlemode.gameObject.SetActive(true);
